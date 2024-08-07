@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.17.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: Weblog-HikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+#=================================================================
+# log 日志
+#=================================================================
+logging:
+  config: classpath:logback-weblog.xml
+
+#=================================================================
+# minio (上传图片需要，需配置成自己的地址)
+#=================================================================
+minio:
+  endpoint: http://47.115.223.190:9000
+  accessKey: zsk
+  secretKey: 123456789
+  bucketName: weblog
