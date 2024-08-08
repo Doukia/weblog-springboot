@@ -39,6 +39,11 @@
             <artifactId>weblog-module-jwt</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.zsk</groupId>
+            <artifactId>weblog-module-search</artifactId>
+        </dependency>
+
         <!-- knife4j -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
