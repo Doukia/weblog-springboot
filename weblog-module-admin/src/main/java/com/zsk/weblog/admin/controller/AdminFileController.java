@@ -6,6 +6,7 @@ import com.zsk.weblog.common.utils.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +28,7 @@ public class AdminFileController {
     @PostMapping("/file/upload")
     @ApiOperationLog(description = "文件上传")
     @ApiOperation("文件上传")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Response uploadFile(@RequestParam MultipartFile file) {
         return adminFileService.uploadFile(file);
     }

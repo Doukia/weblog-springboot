@@ -1,8 +1,8 @@
 package com.zsk.weblog.admin.controller;
 
+import com.zsk.weblog.admin.model.vo.category.AddCategoryReqVO;
 import com.zsk.weblog.admin.model.vo.category.DeleteCategoryReqVO;
 import com.zsk.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
-import com.zsk.weblog.admin.model.vo.category.AddCategoryReqVO;
 import com.zsk.weblog.admin.service.AdminCategoryService;
 import com.zsk.weblog.common.aspect.ApiOperationLog;
 import com.zsk.weblog.common.utils.PageResponse;
@@ -32,6 +32,7 @@ public class AdminCategoryController {
     @PostMapping("/add")
     @ApiOperationLog(description = "添加分类")
     @ApiOperation("添加分类")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Response addCategory(@RequestBody @Validated AddCategoryReqVO addCategoryReqVO) {
         return adminCategoryService.addCategory(addCategoryReqVO);
     }
@@ -46,6 +47,7 @@ public class AdminCategoryController {
     @PostMapping("/delete")
     @ApiOperationLog(description = "删除分类")
     @ApiOperation("删除分类")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Response deleteCategory(@RequestBody @Validated DeleteCategoryReqVO deleteCategoryReqVO) {
         return adminCategoryService.deleteCategory(deleteCategoryReqVO);
     }

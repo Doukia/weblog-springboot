@@ -1,13 +1,9 @@
 package com.zsk.weblog.admin.controller;
 
-import com.zsk.weblog.admin.model.vo.category.AddCategoryReqVO;
-import com.zsk.weblog.admin.model.vo.category.DeleteCategoryReqVO;
-import com.zsk.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.zsk.weblog.admin.model.vo.tag.AddTagReqVO;
 import com.zsk.weblog.admin.model.vo.tag.DeleteTagReqVO;
 import com.zsk.weblog.admin.model.vo.tag.FindTagPageListReqVO;
 import com.zsk.weblog.admin.model.vo.tag.SearchTagReqVO;
-import com.zsk.weblog.admin.service.AdminCategoryService;
 import com.zsk.weblog.admin.service.AdminTagService;
 import com.zsk.weblog.common.aspect.ApiOperationLog;
 import com.zsk.weblog.common.utils.PageResponse;
@@ -15,6 +11,7 @@ import com.zsk.weblog.common.utils.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +33,7 @@ public class AdminTagController {
     @PostMapping("/add")
     @ApiOperationLog(description = "添加标签")
     @ApiOperation("添加标签")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Response addTag(@RequestBody @Validated AddTagReqVO addTagReqVO) {
         return adminTagService.addTag(addTagReqVO);
     }
@@ -50,6 +48,7 @@ public class AdminTagController {
     @PostMapping("/delete")
     @ApiOperationLog(description = "删除标签")
     @ApiOperation("删除标签")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Response deleteTag(@RequestBody @Validated DeleteTagReqVO deleteCategoryReqVO) {
         return adminTagService.deleteTag(deleteCategoryReqVO);
     }
