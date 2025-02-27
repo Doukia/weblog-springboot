@@ -22,10 +22,10 @@ public interface AdminTagService {
 
     /**
      * 查询标签分页
-     * @param findCategoryPageListReqVO
+     * @param findTagPageListReqVO
      * @return
      */
-    PageResponse findTagPageList(FindTagPageListReqVO findCategoryPageListReqVO);
+    PageResponse findTagPageList(FindTagPageListReqVO findTagPageListReqVO);
 
     /**
      * 删除标签
