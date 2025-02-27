@@ -1,8 +1,5 @@
 package com.zsk.weblog.admin.service;
 
-import com.zsk.weblog.admin.model.vo.category.AddCategoryReqVO;
-import com.zsk.weblog.admin.model.vo.category.DeleteCategoryReqVO;
-import com.zsk.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.zsk.weblog.admin.model.vo.tag.AddTagReqVO;
 import com.zsk.weblog.admin.model.vo.tag.DeleteTagReqVO;
 import com.zsk.weblog.admin.model.vo.tag.FindTagPageListReqVO;
@@ -32,10 +29,10 @@ public interface AdminTagService {
 
     /**
      * 删除标签
-     * @param deleteCategoryReqVO
+     * @param deleteTagReqVO
      * @return
      */
-    Response deleteTag(DeleteTagReqVO deleteCategoryReqVO);
+    Response deleteTag(DeleteTagReqVO deleteTagReqVO);
 
     /**
      * 根据标签关键词模糊查询
